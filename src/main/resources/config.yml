@@ -1,0 +1,30 @@
+Messages:
+  NoValid: '&f%string% &cis not a valid number!'
+  ZeroIndicator: '&cYou can''t go lower than 0!'
+
+  #Level section
+  LevelSet: '&6Your level is set to &f%level%&6!'
+  LevelGive: '&6You''ve received &f%level% &6levels!'
+  LevelGiveTargetReceive: '&6You have received &f%level% &6levels from &f%sender%!'
+  LevelGiveTarget: '&6You have successfully given &f %target% %level% &6levels!'
+  LevelSetTargetReceive: '&6Your level is set to &f%level% &6 by &f%sender%&6!'
+  LevelSetTarget: '&6You have successfully set the level of &f%target% &6 to &f%level%&6!'
+
+  #EXP Section
+  EXPSet: '&6Your EXP is set to &f%exp%&6!'
+  EXPGive: '&6You''ve received &f%exp% &6EXP!'
+  EXPGiveTargetReceive: '&6You have received &f%exp% &6EXP from &f%sender%!'
+  EXPGiveTarget: '&6You have successfully given &f %target% %exp% &6EXP!'
+  EXPSetTargetReceive: '&6Your EXP is set to &f%exp% &6by &f%sender%&6!'
+  EXPSetTarget: '&6You have successfully set the EXP of &f%target% &6to &f%exp%&6!'
+
+  #Stats
+  StatsSender:
+    - '&6Level: &f%level%'
+    - '&6EXP: &f%exp%'
+    - '%bar%'
+  StatsTarget:
+  - '&6Name: &f%target%'
+  - '&6Level: &f%level%'
+  - '&6EXP: &f%exp%'
+  - '%bar%'

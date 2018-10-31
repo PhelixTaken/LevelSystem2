@@ -1,0 +1,7 @@
+main: me.phelix.all.Main
+version: 1.0
+name: LevelSystem
+author: Phelix
+commands:
+  level:
+  exp:
