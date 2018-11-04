@@ -31,11 +31,17 @@ public class Level implements CommandExecutor {
                 } else {
                     data.setLevel(player, args[1], false);
                 }
-            } else if(args.length > 1 && args[0].equalsIgnoreCase("give")){
-                if(args.length == 3){
+            } else if(args.length > 1 && args[0].equalsIgnoreCase("give")) {
+                if (args.length == 3) {
                     data.setLevel(player, Bukkit.getPlayer(args[1]), args[2], true);
                 } else {
                     data.setLevel(player, args[1], true);
+                }
+            } else if(args.length > 1 && args[0].equalsIgnoreCase("take")){
+                if(args.length == 3){
+                    data.takeLevel(player, Bukkit.getPlayer(args[1]), args[2]);
+                } else {
+                    data.takeLevel(player, args[1]);
                 }
             } else if(args.length == 2 && args[0].equalsIgnoreCase("show")){
                 data.showStats(player, Bukkit.getPlayer(args[1]));

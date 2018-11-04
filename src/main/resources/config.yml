@@ -1,6 +1,7 @@
 Messages:
-  NoValid: '&f%string% &cis not a valid number!'
+  NoValid: '&f%input% &cis not a valid number!'
   ZeroIndicator: '&cYou can''t go lower than 0!'
+  LevelZeroIndicator: '&f%level% - %input% &c can''t be lower than 0!'
 
   #Level section
   LevelSet: '&6Your level is set to &f%level%&6!'
@@ -9,6 +10,9 @@ Messages:
   LevelGiveTarget: '&6You have successfully given &f %target% %level% &6levels!'
   LevelSetTargetReceive: '&6Your level is set to &f%level% &6 by &f%sender%&6!'
   LevelSetTarget: '&6You have successfully set the level of &f%target% &6 to &f%level%&6!'
+  LevelTake: '&6You took &f%level% &6levels of yourself!'
+  LevelTakeTarget: '&6You have successfully taken &f%level% &6levels of &f%target%&6!'
+  LevelTakeTargetReceive: '&f%level% &6levels has been taken by &f%sender%&6!'
 
   #EXP Section
   EXPSet: '&6Your EXP is set to &f%exp%&6!'

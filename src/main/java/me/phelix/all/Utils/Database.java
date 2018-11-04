@@ -28,6 +28,10 @@ public class Database {
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.ZeroIndicator")));
     }
 
+    private void noInt(Player player, String value){
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.NoValid").replace("%input%", value)));
+    }
+
     private void calculateStats(Player player){
         int formula = 5 * getLevel(player) + 50;
         while(getExp(player) >= formula){
@@ -38,8 +42,9 @@ public class Database {
     }
 
     public void setLevel(Player player, String value, boolean give){
+        int number;
         try{
-            int number = Integer.parseInt(value);
+            number = Integer.parseInt(value);
             if(number < 0){
                 zeroInd(player);
                 return;
@@ -52,7 +57,7 @@ public class Database {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelSet").replace("%level%", String.valueOf(number))));
             } calculateStats(player);
         } catch (NumberFormatException e){
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.NoValid").replace("%string%", value)));
+            noInt(player, value);
         }
     }
 
@@ -85,7 +90,55 @@ public class Database {
                 );
             } calculateStats(target);
         } catch (NumberFormatException e){
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.NoValid").replace("%string%", value)));
+            noInt(player, value);
+        }
+    }
+
+    public void takeLevel(Player player, String value){
+        try{
+            int number = Integer.parseInt(value);
+            if(number < 0) {
+                zeroInd(player);
+                return;
+            }
+            if(getLevel(player) - number < 0){
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelZeroIndicator")
+                        .replace("%input%", String.valueOf(number))
+                        .replace("%level%", String.valueOf(getLevel(player)))));
+                return;
+            } else {
+                level.put(player, getLevel(player) - number);
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelTake")
+                .replace("%level%", String.valueOf(number))));
+            } calculateStats(player);
+        } catch (NumberFormatException e){
+            noInt(player, value);
+        }
+    }
+
+    public void takeLevel(Player player, Player target, String value){
+        try{
+            int number = Integer.parseInt(value);
+            if(number < 0) {
+                zeroInd(player);
+                return;
+            }
+            if(getLevel(target) - number < 0){
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelZeroIndicator")
+                .replace("%input%", String.valueOf(number))
+                .replace("%level%", String.valueOf(getLevel(target)))));
+                return;
+            } else {
+                level.put(target, getLevel(target) - number);
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelTakeTarget")
+                        .replace("%level%", String.valueOf(number))
+                        .replace("%target%", target.getName())));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.LevelTakeTargetReceive")
+                        .replace("%level%", String.valueOf(number))
+                        .replace("%sender%", player.getName())));
+            } calculateStats(target);
+        } catch (NumberFormatException e){
+            noInt(player, value);
         }
     }
 
@@ -106,8 +159,7 @@ public class Database {
                         .replace("%exp%", String.valueOf(number))));
             } calculateStats(player);
         } catch (NumberFormatException e){
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.NoValid")
-                    .replace("%string%", value)));
+            noInt(player, value);
         }
     }
 
@@ -140,7 +192,7 @@ public class Database {
                 );
             } calculateStats(target);
         } catch (NumberFormatException e){
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Messages.NoValid").replace("%string%", value)));
+             noInt(player, value);
         }
     }
 

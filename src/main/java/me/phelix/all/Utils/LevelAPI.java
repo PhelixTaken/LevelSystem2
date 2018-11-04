@@ -27,6 +27,14 @@ public class LevelAPI {
         database.setLevel(player, number, give);
     }
 
+    public void takeLevel(Player player, String number){
+        database.takeLevel(player, number);
+    }
+
+    public void takeLevel(Player player, Player target, String number){
+        database.takeLevel(player, target, number);
+    }
+
     public void setLevel(Player player, Player target, String number, boolean give){
         database.setLevel(player, target, number, give);
     }
