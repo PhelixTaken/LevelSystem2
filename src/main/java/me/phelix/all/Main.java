@@ -6,17 +6,18 @@ import me.phelix.all.Events.Join;
 
 import me.phelix.all.Events.Leave;
 import me.phelix.all.Utils.Database;
+import me.phelix.all.Utils.LevelAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-
     private Database database;
+    private LevelAPI levelAPI;
 
     public void onEnable(){
         database = new Database(this);
-
+        levelAPI = new LevelAPI(database);
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
 
@@ -34,7 +35,9 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Leave(this, database), this);
     }
 
-
+    public Database getDatabase(){
+        return database;
+    }
 
 
 }

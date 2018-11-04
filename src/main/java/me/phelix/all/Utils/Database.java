@@ -13,6 +13,8 @@ public class Database {
     private Plugin plugin;
     public Database(Plugin plugin) { this.plugin = plugin; }
 
+
+
     public Map<Player, Integer> level = new IdentityHashMap<>();
     public Map<Player, Integer> exp = new IdentityHashMap<>();
 
