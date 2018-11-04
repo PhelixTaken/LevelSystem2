@@ -37,8 +37,9 @@ public class Database {
         while(getExp(player) >= formula){
             level.put(player, getLevel(player) + 1);
             exp.put(player, getExp(player) - formula);
+            Bukkit.getPluginManager().callEvent(new PlayerLevelUpEvent(player, this));
         }
-        Bukkit.getPluginManager().callEvent(new EXPChangeEvent(player, this));
+        Bukkit.getPluginManager().callEvent(new PlayerEXPChangeEvent(player, this));
     }
 
     public void setLevel(Player player, String value, boolean give){

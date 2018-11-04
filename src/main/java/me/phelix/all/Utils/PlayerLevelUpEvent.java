@@ -4,11 +4,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class EXPChangeEvent extends Event {
+public class PlayerLevelUpEvent extends Event {
+
     private Database data;
     private Player player;
 
-    public EXPChangeEvent(Player player, Database data){
+    public PlayerLevelUpEvent(Player player, Database data){
         this.player = player;
         this.data = data;
     }
@@ -25,6 +26,8 @@ public class EXPChangeEvent extends Event {
         return data.getLevel(player);
     }
 
+    public Integer getOldLevel() { return data.getLevel(player) - 1; }
+
     private final static HandlerList handlers = new HandlerList();
 
     public HandlerList getHandlers(){
@@ -34,5 +37,6 @@ public class EXPChangeEvent extends Event {
     public static HandlerList getHandlerList(){
         return handlers;
     }
+
 
 }
