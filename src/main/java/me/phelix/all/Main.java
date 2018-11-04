@@ -39,5 +39,4 @@ public class Main extends JavaPlugin {
         return database;
     }
 
-
 }
