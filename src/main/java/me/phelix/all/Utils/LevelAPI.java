@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 public class LevelAPI {
 
     private Database database;
+    private static LevelAPI levelAPI;
     public LevelAPI(Database database) { this.database = database; }
 
     public Integer getLevel(Player player){
@@ -45,6 +46,10 @@ public class LevelAPI {
 
     public void showStats(Player player, Player target){
         database.showStats(player, target);
+    }
+
+    public static LevelAPI getInstance(){
+        return levelAPI;
     }
 
 }

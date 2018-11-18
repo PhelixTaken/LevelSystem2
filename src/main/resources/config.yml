@@ -28,7 +28,7 @@ Messages:
     - '&6EXP: &f%exp%'
     - '%bar%'
   StatsTarget:
-  - '&6Name: &f%target%'
-  - '&6Level: &f%level%'
-  - '&6EXP: &f%exp%'
-  - '%bar%'
+    - '&6Name: &f%target%'
+    - '&6Level: &f%level%'
+    - '&6EXP: &f%exp%'
+    - '%bar%'
